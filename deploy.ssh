@@ -1,0 +1,8 @@
+docker build -t my-express-app .
+docker login -u heroku registry.heroku.com
+docker tag my-express-app registry.heroku.com/your-app-name
+docker push registry.heroku.com/your-app-name
+
+
+heroku create your-app-name
+heroku container:release web registry.heroku.com/your-app-name
